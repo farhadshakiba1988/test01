@@ -1,0 +1,4 @@
+gunicorn test01.wsgi:application --bind 0.0.0.0:8000
+limit_req_zone $binary_remote_addr zone=limit:500m rate=50r/s;
+limit_req_status 429;
+limit_req zone=limit;
